@@ -1,0 +1,50 @@
+﻿<Window x:Class="LeThanhHaiWPF.StaffManagement.CreateUpdateNewsArticleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create/Update News Article" Height="400" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- News Article Id -->
+        <Label Content="News Article Id:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBox x:Name="txtNewsArticleId" Grid.Row="0" Grid.Column="1" Width="250" Margin="0,5,0,5" Text="{Binding NewsArticleId}" IsReadOnly="True"/>
+
+        <!-- Title -->
+        <Label Content="Title:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBox x:Name="txtTitle" Grid.Row="1" Grid.Column="1" Width="250" Margin="0,5,0,5"/>
+
+        <!-- Content -->
+        <Label Content="Content:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBox x:Name="txtContent" Grid.Row="2" Grid.Column="1" Width="250" Margin="0,5,0,5" AcceptsReturn="True" TextWrapping="Wrap" Height="100"/>
+
+        <!-- Category -->
+        <Label Content="Category:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <ComboBox x:Name="cmbCategory" Grid.Row="3" Grid.Column="1" Width="250" Margin="0,5,0,5" DisplayMemberPath="CategoryName" SelectedValuePath="CategoryId"/>
+
+        <!-- Tags -->
+        <Label Content="Tags:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" Margin="0,0,10,0"/>
+        <ScrollViewer Grid.Row="4" Grid.Column="1" Height="100" Margin="0,5,0,5">
+            <ItemsControl x:Name="listBoxTags">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding TagName}" IsChecked="{Binding IsSelected}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <!-- Save Button -->
+        <Button Content="Save" Grid.Row="5" Grid.Column="1" Width="75" HorizontalAlignment="Right" Margin="0,10,0,0" Click="BtnSave_Click"/>
+    </Grid>
+</Window>
