@@ -1,0 +1,18 @@
+﻿<Window x:Class="LeThanhHaiWPF.StaffUtilities.NewsHistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="News History" Height="400" Width="800">
+    <Grid Margin="10">
+        <CheckBox x:Name="chkShowRemoved" Content="Show Removed News Articles" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="ChkShowRemoved_Checked" Unchecked="ChkShowRemoved_Unchecked"/>
+        <DataGrid x:Name="dataGridNewsHistory" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,30,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding NewsArticleId}" Width="Auto"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding NewsTitle}" Width="220"/>
+                <DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDate, StringFormat=\{0:dd-MM-yyyy\}}" Width="Auto"/>
+                <DataGridTextColumn Header="Modified Date" Binding="{Binding ModifiedDate, StringFormat=\{0:dd-MM-yyyy\}}" Width="Auto"/>
+                <DataGridTextColumn Header="Category" Binding="{Binding CategoryName}" Width="Auto"/>
+                <DataGridTextColumn Header="Tags" Binding="{Binding TagsAsString}" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

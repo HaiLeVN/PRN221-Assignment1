@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="LeThanhHaiWPF.StaffManagement.CategoryManagementControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression.blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Height="402" Width="768">
+    <Grid Margin="0,0,50,0">
+        <Label Content="Category Management" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0,10,0,0"/>
+        <TextBox x:Name="txtCategoryName" HorizontalAlignment="Left" Width="200" Margin="10,60,0,302" />
+        <TextBox x:Name="txtDescription" HorizontalAlignment="Left" Width="200" Margin="10,131,0,175" TextWrapping="WrapWithOverflow" />
+        <Button Content="Create" HorizontalAlignment="Left" Width="75" Margin="227,370,0,5" Click="BtnCreate_Click"/>
+        <Button Content="Update" HorizontalAlignment="Center" Width="87" Margin="0,372,0,5" Click="BtnUpdate_Click"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Width="81" Margin="416,372,0,5" Click="BtnDelete_Click"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Width="200" Margin="10,322,0,42" TextChanged="TxtSearch_TextChanged" />
+        <DataGrid x:Name="dataGridCategories" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="236,60,0,0" Width="470" Height="300" AutoGenerateColumns="False" SelectionChanged="DataGridCategories_SelectionChanged" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Category ID" Binding="{Binding CategoryId}" Width="100"/>
+                <DataGridTextColumn Header="Category Name" Binding="{Binding CategoryName}" Width="200"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding CategoryDesciption}" Width="170"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" Width="88"/>
+        <Label Content="Category Name" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="98"/>
+    </Grid>
+</UserControl>
